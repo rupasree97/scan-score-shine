@@ -1,73 +1,73 @@
-# Welcome to your Lovable project
 
-## Project info
 
-**URL**: https://lovable.dev/projects/f9caf7fa-6c0c-4a70-ac0e-116262dd32df
+# Scan Score Shine: Automated OMR Evaluation & Scoring System
+Scan Score Shine is a web application to automate evaluation of OMR sheets.
+It allows evaluators to upload OMR sheet images and CSV/XLSX answer keys,
+and calculates the total marks accurately. The system reduces manual errors,
+speeds up evaluation, and provides a dashboard to review results.
 
-## How can I edit this code?
+## Features
+- Upload OMR sheets (images/PDFs)
+- Upload answer keys (CSV/XLSX)
+- Automatic image preprocessing (rotation, skew, perspective correction)
+- Bubble detection using OpenCV
+- Dynamic scoring based on answer key
+- Total marks calculation (no hardcoded subjects)
+- Dashboard to monitor evaluation and review flagged sheets
+- Export results as CSV/XLSX
+  
+  ## Tech Stack
+- Frontend: React + Vite + TypeScript + TailwindCSS + shadcn/ui
+- Backend: Python (FastAPI / Flask)
+- Database: PostgreSQL / SQLite
+- OMR Processing: OpenCV, NumPy, SciPy, Pillow
+- Optional ML: scikit-learn / TensorFlow Lite for ambiguous bubbles
+- PDF Handling: PyMuPDF / PDFPlumber
+- CSV/XLSX Handling: Pandas / openpyxl
+5. Project Setup (For Developers)
+## Setup
 
-There are several ways of editing your application.
+1. Clone the repo
+   ```bash
+   git clone https://github.com/rupasree97/scan-score-shine.git
+   cd scan-score-shine
 
-**Use Lovable**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f9caf7fa-6c0c-4a70-ac0e-116262dd32df) and start prompting.
+Install frontend dependencies
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+cd frontend/reactvite
+npm install
 npm run dev
-```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Backend setup (example for FastAPI)
 
-**Use GitHub Codespaces**
+cd backend
+python -m venv venv
+source venv/bin/activate   # or `venv\Scripts\activate` on Windows
+pip install -r requirements.txt
+uvicorn main:app --reload
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## What technologies are used for this project?
+Open frontend in browser: http://localhost:5173
 
-This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
+### **Usage**
+```markdown
+## Usage
+1. Log in as evaluator (if authentication is implemented)
+2. Upload OMR sheet images or PDFs
+3. Upload CSV/XLSX answer key
+4. Click "Evaluate"
+5. View total marks in the dashboard
+6. Export results as CSV/XLSX if needed
 
-Simply open [Lovable](https://lovable.dev/projects/f9caf7fa-6c0c-4a70-ac0e-116262dd32df) and click on Share -> Publish.
 
-## Can I connect a custom domain to my Lovable project?
 
-Yes, you can!
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+8. Contributing
+## Contributing
+Feel free to submit issues or pull requests. Make sure your changes follow the project’s coding conventions.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
