@@ -14,7 +14,194 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      answer_keys: {
+        Row: {
+          answers: Json
+          created_at: string
+          id: string
+          max_score: number
+          name: string
+          subject_breakdown: Json
+          total_questions: number
+          updated_at: string
+          version: string
+        }
+        Insert: {
+          answers: Json
+          created_at?: string
+          id?: string
+          max_score?: number
+          name: string
+          subject_breakdown: Json
+          total_questions?: number
+          updated_at?: string
+          version: string
+        }
+        Update: {
+          answers?: Json
+          created_at?: string
+          id?: string
+          max_score?: number
+          name?: string
+          subject_breakdown?: Json
+          total_questions?: number
+          updated_at?: string
+          version?: string
+        }
+        Relationships: []
+      }
+      omr_audit_logs: {
+        Row: {
+          action: string
+          created_at: string
+          details: Json | null
+          id: string
+          ip_address: unknown | null
+          performed_by: string | null
+          sheet_id: string | null
+        }
+        Insert: {
+          action: string
+          created_at?: string
+          details?: Json | null
+          id?: string
+          ip_address?: unknown | null
+          performed_by?: string | null
+          sheet_id?: string | null
+        }
+        Update: {
+          action?: string
+          created_at?: string
+          details?: Json | null
+          id?: string
+          ip_address?: unknown | null
+          performed_by?: string | null
+          sheet_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "omr_audit_logs_sheet_id_fkey"
+            columns: ["sheet_id"]
+            isOneToOne: false
+            referencedRelation: "omr_sheets"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      omr_results: {
+        Row: {
+          ambiguous_answers: Json | null
+          answer_key_id: string
+          confidence_score: number | null
+          correct_answers: number
+          created_at: string
+          detected_answers: Json
+          id: string
+          incorrect_answers: number
+          max_score: number
+          percentage: number
+          processing_time: number | null
+          sheet_id: string
+          subject_scores: Json
+          total_score: number
+          unanswered: number
+        }
+        Insert: {
+          ambiguous_answers?: Json | null
+          answer_key_id: string
+          confidence_score?: number | null
+          correct_answers?: number
+          created_at?: string
+          detected_answers: Json
+          id?: string
+          incorrect_answers?: number
+          max_score: number
+          percentage: number
+          processing_time?: number | null
+          sheet_id: string
+          subject_scores: Json
+          total_score: number
+          unanswered?: number
+        }
+        Update: {
+          ambiguous_answers?: Json | null
+          answer_key_id?: string
+          confidence_score?: number | null
+          correct_answers?: number
+          created_at?: string
+          detected_answers?: Json
+          id?: string
+          incorrect_answers?: number
+          max_score?: number
+          percentage?: number
+          processing_time?: number | null
+          sheet_id?: string
+          subject_scores?: Json
+          total_score?: number
+          unanswered?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "omr_results_answer_key_id_fkey"
+            columns: ["answer_key_id"]
+            isOneToOne: false
+            referencedRelation: "answer_keys"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "omr_results_sheet_id_fkey"
+            columns: ["sheet_id"]
+            isOneToOne: false
+            referencedRelation: "omr_sheets"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      omr_sheets: {
+        Row: {
+          created_at: string
+          file_path: string
+          id: string
+          original_filename: string
+          processed_file_path: string | null
+          roll_number: string | null
+          sheet_version: string | null
+          status: string
+          student_id: string | null
+          student_name: string | null
+          updated_at: string
+          uploaded_by: string | null
+        }
+        Insert: {
+          created_at?: string
+          file_path: string
+          id?: string
+          original_filename: string
+          processed_file_path?: string | null
+          roll_number?: string | null
+          sheet_version?: string | null
+          status?: string
+          student_id?: string | null
+          student_name?: string | null
+          updated_at?: string
+          uploaded_by?: string | null
+        }
+        Update: {
+          created_at?: string
+          file_path?: string
+          id?: string
+          original_filename?: string
+          processed_file_path?: string | null
+          roll_number?: string | null
+          sheet_version?: string | null
+          status?: string
+          student_id?: string | null
+          student_name?: string | null
+          updated_at?: string
+          uploaded_by?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
