@@ -22,6 +22,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          hover: "hsl(var(--primary-hover))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -39,6 +40,14 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -46,6 +55,13 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        omr: {
+          'bubble-empty': "hsl(var(--omr-bubble-empty))",
+          'bubble-filled': "hsl(var(--omr-bubble-filled))",
+          'bubble-correct': "hsl(var(--omr-bubble-correct))",
+          'bubble-incorrect': "hsl(var(--omr-bubble-incorrect))",
+          'bubble-ambiguous': "hsl(var(--omr-bubble-ambiguous))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
